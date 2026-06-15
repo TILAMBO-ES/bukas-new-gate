@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project B.U.K.A.S. | Tilambo Elementary School</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --secondary: #0d9488;
+            --accent: #f59e0b;
+            --neutral-dark: #1f2937;
+            --neutral-light: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--neutral-light);
+            color: var(--neutral-dark);
+            line-height: 1.6;
+        }
+
+        /* Header Banner with Embedded Image Background */
+        header {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.88) 0%, rgba(17, 24, 39, 0.92) 100%), 
+                        url('715389536_27234760132809827_1255254801400863150_n_2.jpg');
+            background-size: cover;
+            background-position: center 35%;
+            background-repeat: no-repeat;
+            color: var(--white);
+            padding: 5rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        header h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0.5rem auto 0 auto;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .badge-sy {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--neutral-dark);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 1.25rem;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        /* Navigation Tabs */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Grid & Cards Layout */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-light);
+        }
+
+        .card.accent-card {
+            border-left-color: var(--accent);
+            background: linear-gradient(to right, #fff, #fffde7);
+        }
+
+        .card h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--neutral-dark);
+        }
+
+        /* Team/Officers Sections */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+
+        .officers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .person-card {
+            background: var(--white);
+            padding: 1.2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .person-card .role {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .person-card .name {
+            font-weight: 600;
+            color: var(--neutral-dark);
+        }
+
+        .person-card .rank {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+            background-color: var(--neutral-light);
+            display: inline-block;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* Placeholder Area */
+        .placeholder-box {
+            background: var(--white);
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            color: #64748b;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .tab-btn { padding: 0.75rem 0.75rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section with Integrated Photo -->
+    <header>
+        <h1>Tilambo Elementary School</h1>
+        <p>Project B.U.K.A.S. (Building Upgrades for Knowledge, Access, & Safety)</p>
+        <span class="badge-sy">S.Y. 2025-2026</span>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <button class="tab-btn active" onclick="switchTab(event, 'overview')">Project Overview</button>
+        <button class="tab-btn" onclick="switchTab(event, 'faculty')">TES Faculty & Staff</button>
+        <button class="tab-btn" onclick="switchTab(event, 'officers')">GPTA Leadership</button>
+        <button class="tab-btn" onclick="switchTab(event, 'candidates')">Fund Raising Candidates</button>
+    </nav>
+
+    <!-- Main Dynamic Content Wrapper -->
+    <main>
+        
+        <!-- TAB 1: OVERVIEW -->
+        <div id="overview" class="tab-content active">
+            <div class="metrics-grid">
+                <div class="card accent-card">
+                    <h3>Total Project Investment</h3>
+                    <div class="value">Php 324,490.00</div>
+                </div>
+                <div class="card">
+                    <h3>Date Completed</h3>
+                    <div class="value">June 5, 2026</div>
+                </div>
+                <div class="card">
+                    <h3>Primary Funding Vehicle</h3>
+                    <div class="value" style="font-size: 1.3rem; margin-top: 0.4rem;">Mr. and Ms. Foundation 2025</div>
+                </div>
+            </div>
+
+            <!-- Full-Width Project Infrastructure Showcase Image -->
+            <div class="card" style="padding: 0; overflow: hidden; margin-bottom: 2rem; border-left: none;">
+                <img src="15389536_27234760132809827_1255254801400863150_n_2.jpg" 
+                     alt="Tilambo Elementary School Gate Framework" 
+                     style="width: 100%; height: auto; display: block; max-height: 500px; object-fit: cover;">
+                <div style="padding: 1rem; font-size: 0.9rem; color: #4b5563; text-align: center; background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
+                    <strong>Completed Infrastructure Project:</strong> Structural upgrades completed framework at Tilambo Elementary School main entry point.
+                </div>
+            </div>
+
+            <h2 class="section-title">About Project B.U.K.A.S.</h2>
+            <div class="card" style="border-left: 4px solid var(--secondary); line-height: 1.7;">
+                <p><strong>Building Upgrades for Knowledge, Access, & Safety (B.U.K.A.S.)</strong> represents a collaborative milestone initiative executed during the 2025-2026 school year. Funded entirely through community efforts, the upgrades ensure a safer, highly accessible, and structurally sound learning ecosystem for the students and faculty of Tilambo Elementary School.</p>
+            </div>
+        </div>
+
+        <!-- TAB 2: FACULTY & STAFF -->
+        <div id="faculty" class="tab-content">
+            <h2 class="section-title">Administrative Leadership</h2>
+            <div style="margin-bottom: 2rem;">
+                <div class="person-card" style="max-width: 350px; margin: 0 auto; border: 2px solid var(--accent); background: linear-gradient(to bottom, #ffffff, #fffdf5);">
+                    <div class="role" style="color: var(--accent);">School Administrator</div>
+                    <div class="name" style="font-size: 1.2rem; font-weight: 700;">Mr. Limuel F. Galicia</div>
+                    <div class="rank">Principal I</div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Teaching Faculty</h2>
+            <div class="officers-grid">
+                <div class="person-card">
+                    <div class="role">Kindergarten Adviser</div>
+                    <div class="name">Mrs. Ariane M. Zaragoza</div>
+                    <div class="rank">Teacher I</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Grade 1 Adviser</div>
+                    <div class="name">Mrs. Analyn I. Santiago</div>
+                    <div class="rank">Teacher VI</div>
+                </div>
+                <div class="person-card" style="border-color: var(--primary-light);">
+                    <div class="role">Grade 2 Adviser</div>
+                    <div class="name">Mrs. Loreta D. Hermidilla</div>
+                    <div class="rank" style="background-color: #dbeafe; color: var(--primary);">Master Teacher II</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Grade 3 Adviser</div>
+                    <div class="name">Mrs. Leonisa B. Escala</div>
+                    <div class="rank">Teacher III</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Grade 3 Adviser</div>
+                    <div class="name">Mrs. Rona Joy F. Guerra</div>
+                    <div class="rank">Teacher III</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Grade 4 Adviser</div>
+                    <div class="name">Mrs. Leonarda B. Mangaliman</div>
+                    <div class="rank">Teacher III</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Grade 5 Adviser</div>
+                    <div class="name">Mrs. Marites A. Caringal</div>
+                    <div class="rank">Teacher III</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Grade 5 Adviser</div>
+                    <div class="name">Mrs. Rhea E. Silva</div>
+                    <div class="rank">Teacher III</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Grade 6 Adviser</div>
+                    <div class="name">Mrs. Marianne R. Caringal</div>
+                    <div class="rank">Teacher III</div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Administrative & Support Staff</h2>
+            <div class="officers-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+                <div class="person-card">
+                    <div class="role">Administrative Services</div>
+                    <div class="name">Ms. Irene P. Lumbera</div>
+                    <div class="rank">Administrative Officer II</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">School Support Services</div>
+                    <div class="name">Mr. Christian A. Espina</div>
+                    <div class="rank">Job Order</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: GPTA OFFICERS & LEADERSHIP -->
+        <div id="officers" class="tab-content">
+            
+            <h2 class="section-title">GPTA Executive Officers</h2>
+            <div class="officers-grid">
+                <div class="person-card"><div class="role">President</div><div class="name">Florante V. Cantos</div></div>
+                <div class="person-card"><div class="role">Vice President</div><div class="name">Luis Perez</div></div>
+                <div class="person-card"><div class="role">Secretary</div><div class="name">Rona L. Dimayuga</div></div>
+                <div class="person-card"><div class="role">Secretary</div><div class="name">Leonisa B. Escala</div></div>
+                <div class="person-card"><div class="role">Treasurer</div><div class="name">Kwensie B. Pascua</div></div>
+                <div class="person-card"><div class="role">Auditor</div><div class="name">Bella B. Viceral</div></div>
+            </div>
+
+            <h2 class="section-title">Public Information Officers (PIO)</h2>
+            <div class="officers-grid">
+                <div class="person-card"><div class="role">PIO</div><div class="name">Raiza S. Perea</div></div>
+                <div class="person-card"><div class="role">PIO</div><div class="name">Alex P. Espina</div></div>
+                <div class="person-card"><div class="role">PIO</div><div class="name">Ma. Kaize R. Untalan</div></div>
+                <div class="person-card"><div class="role">PIO</div><div class="name">Liza Caringal</div></div>
+            </div>
+
+            <h2 class="section-title">Board of Directors</h2>
+            <div style="margin-bottom: 1.25rem;">
+                <div class="person-card" style="max-width: 300px; margin: 0 auto 1.25rem auto; border: 2px solid var(--secondary)">
+                    <div class="role">BOD Chairman</div>
+                    <div class="name" style="font-size: 1.1rem;">Anthony Caňazares</div>
+                </div>
+            </div>
+            <div class="officers-grid">
+                <div class="person-card"><div class="role">BOD Member</div><div class="name">Myrna E. Sarmiento</div></div>
+                <div class="person-card"><div class="role">BOD Member</div><div class="name">Joy D. Bisco</div></div>
+                <div class="person-card"><div class="role">BOD Member</div><div class="name">Jealene Macasaet</div></div>
+                <div class="person-card"><div class="role">BOD Member</div><div class="name">Judy Ann Fortes</div></div>
+                <div class="person-card"><div class="role">BOD Member</div><div class="name">Annaliza Gutierez</div></div>
+                <div class="person-card"><div class="role">BOD Member</div><div class="name">Marcela P. Mendoza</div></div>
+                <div class="person-card"><div class="role">BOD Member</div><div class="name">Mary Jane V. Berana</div></div>
+            </div>
+        </div>
+
+        <!-- TAB 4: CANDIDATES PLACEHOLDER -->
+        <div id="candidates" class="tab-content">
+            <h2 class="section-title">Mr. and Ms. Foundation 2025</h2>
+            <div class="placeholder-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="margin: 0 auto 1rem auto; opacity: 0.5;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">List of Candidates Profile Panel</p>
+                <p style="font-size: 0.9rem;">The database roster for the Mr. and Ms. Foundation 2025 candidates will appear here once finalized.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Tilambo Elementary School. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        function switchTab(event, tabId) {
+            // Remove active status from all tabs
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab configuration
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
