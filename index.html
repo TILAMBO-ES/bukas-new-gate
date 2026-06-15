@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,8 @@
             --neutral-dark: #1f2937;
             --neutral-light: #f3f4f6;
             --white: #ffffff;
+            --gold: #d4af37;
+            --gold-light: #fdf6e2;
         }
 
         * {
@@ -30,8 +33,8 @@
 
         /* Header Banner with Embedded Image Background */
         header {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.88) 0%, rgba(17, 24, 39, 0.92) 100%), 
-                        url('715389536_27234760132809827_1255254801400863150_n_2.jpg');
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.88) 0%, rgba(17, 24, 39, 0.92) 100%),
+                url('715389536_27234760132809827_1255254801400863150_n_2.jpg');
             background-size: cover;
             background-position: center 35%;
             background-repeat: no-repeat;
@@ -46,7 +49,7 @@
             font-weight: 800;
             margin-bottom: 0.5rem;
             letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         header p {
@@ -54,7 +57,7 @@
             opacity: 0.95;
             max-width: 700px;
             margin: 0.5rem auto 0 auto;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .badge-sy {
@@ -66,7 +69,7 @@
             font-weight: bold;
             margin-top: 1.25rem;
             font-size: 0.95rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
         }
 
         /* Navigation Tabs */
@@ -119,8 +122,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Grid & Cards Layout */
@@ -135,7 +145,7 @@
             background: var(--white);
             border-radius: 8px;
             padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             border-left: 4px solid var(--primary-light);
         }
 
@@ -176,7 +186,7 @@
             background: var(--white);
             padding: 1.2rem;
             border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
             text-align: center;
             border: 1px solid #e5e7eb;
         }
@@ -204,14 +214,127 @@
             border-radius: 4px;
         }
 
-        /* Placeholder Area */
-        .placeholder-box {
-            background: var(--white);
-            border: 2px dashed #cbd5e1;
-            border-radius: 8px;
-            padding: 3rem;
+        /* Pageant Specific Styles */
+        .royal-court {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .royal-card {
+            background: linear-gradient(to bottom, #ffffff, var(--gold-light));
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 2rem;
             text-align: center;
-            color: #64748b;
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .royal-card::before {
+            content: "👑";
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .royal-card h3 {
+            color: #855c00;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .royal-card .winner-name {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--neutral-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .royal-card .grade-badge {
+            background-color: var(--gold);
+            color: #3f2a00;
+            font-weight: bold;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.75rem;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .runners-court {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2.5rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .court-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .court-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            color: #6b7280;
+            border-bottom: 2px solid #f3f4f6;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .court-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .court-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .court-title {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Candidates Grade Grid */
+        .grade-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e5e7eb;
+        }
+
+        .grade-section h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 0.75rem;
+        }
+
+        .candidates-list-names {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .candidate-item {
+            background-color: var(--neutral-light);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            color: var(--neutral-dark);
+            border-left: 3px solid var(--secondary);
+            font-size: 0.95rem;
         }
 
         /* Footer */
@@ -226,21 +349,34 @@
 
         /* Responsive adjustments */
         @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .tab-btn { padding: 0.75rem 0.75rem; font-size: 0.9rem; }
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .tab-btn {
+                padding: 0.75rem 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .royal-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .royal-card .winner-name {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Header Section with Integrated Photo -->
     <header>
         <h1>Tilambo Elementary School</h1>
         <p>Project B.U.K.A.S. (Building Upgrades for Knowledge, Access, & Safety)</p>
         <span class="badge-sy">S.Y. 2025-2026</span>
     </header>
 
-    <!-- Navigation Bar -->
     <nav>
         <button class="tab-btn active" onclick="switchTab(event, 'overview')">Project Overview</button>
         <button class="tab-btn" onclick="switchTab(event, 'faculty')">TES Faculty & Staff</button>
@@ -248,10 +384,8 @@
         <button class="tab-btn" onclick="switchTab(event, 'candidates')">Fund Raising Candidates</button>
     </nav>
 
-    <!-- Main Dynamic Content Wrapper -->
     <main>
-        
-        <!-- TAB 1: OVERVIEW -->
+
         <div id="overview" class="tab-content active">
             <div class="metrics-grid">
                 <div class="card accent-card">
@@ -268,27 +402,48 @@
                 </div>
             </div>
 
-            <!-- Full-Width Project Infrastructure Showcase Image -->
+            <h2 class="section-title">Project Implementation Team</h2>
+            <div class="metrics-grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 2rem;">
+                <div class="card"
+                    style="border-left-color: var(--secondary); background: linear-gradient(to right, #fff, #f0fdfa);">
+                    <h3>Project Contractor</h3>
+                    <div class="value" style="font-size: 1.4rem; margin-top: 0.2rem; color: #111827;">Jojie E. Amada
+                    </div>
+                </div>
+                <div class="card"
+                    style="border-left-color: var(--secondary); background: linear-gradient(to right, #fff, #f0fdfa);">
+                    <h3>APC Installer</h3>
+                    <div class="value" style="font-size: 1.4rem; margin-top: 0.2rem; color: #111827;">Gennard Fegal
+                    </div>
+                </div>
+            </div>
+
             <div class="card" style="padding: 0; overflow: hidden; margin-bottom: 2rem; border-left: none;">
-                <img src="15389536_27234760132809827_1255254801400863150_n_2.jpg" 
-                     alt="Tilambo Elementary School Gate Framework" 
-                     style="width: 100%; height: auto; display: block; max-height: 500px; object-fit: cover;">
-                <div style="padding: 1rem; font-size: 0.9rem; color: #4b5563; text-align: center; background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
-                    <strong>Completed Infrastructure Project:</strong> Structural upgrades completed framework at Tilambo Elementary School main entry point.
+                <img src="15389536_27234760132809827_1255254801400863150_n_2.jpg"
+                    alt="Tilambo Elementary School Gate Framework"
+                    style="width: 100%; height: auto; display: block; max-height: 500px; object-fit: cover;">
+                <div
+                    style="padding: 1rem; font-size: 0.9rem; color: #4b5563; text-align: center; background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
+                    <strong>Completed Infrastructure Project:</strong> Structural upgrades completed framework at
+                    Tilambo Elementary School main entry point.
                 </div>
             </div>
 
             <h2 class="section-title">About Project B.U.K.A.S.</h2>
             <div class="card" style="border-left: 4px solid var(--secondary); line-height: 1.7;">
-                <p><strong>Building Upgrades for Knowledge, Access, & Safety (B.U.K.A.S.)</strong> represents a collaborative milestone initiative executed during the 2025-2026 school year. Funded entirely through community efforts, the upgrades ensure a safer, highly accessible, and structurally sound learning ecosystem for the students and faculty of Tilambo Elementary School.</p>
+                <p><strong>Building Upgrades for Knowledge, Access, & Safety (B.U.K.A.S.)</strong> represents a
+                    collaborative milestone initiative executed during the 2025-2026 school year. Funded entirely
+                    through community efforts, the upgrades ensure a safer, highly accessible, and structurally sound
+                    learning ecosystem for the students and faculty of Tilambo Elementary School.</p>
             </div>
         </div>
 
-        <!-- TAB 2: FACULTY & STAFF -->
         <div id="faculty" class="tab-content">
             <h2 class="section-title">Administrative Leadership</h2>
             <div style="margin-bottom: 2rem;">
-                <div class="person-card" style="max-width: 350px; margin: 0 auto; border: 2px solid var(--accent); background: linear-gradient(to bottom, #ffffff, #fffdf5);">
+                <div class="person-card"
+                    style="max-width: 350px; margin: 0 auto; border: 2px solid var(--accent); background: linear-gradient(to bottom, #ffffff, #fffdf5);">
                     <div class="role" style="color: var(--accent);">School Administrator</div>
                     <div class="name" style="font-size: 1.2rem; font-weight: 700;">Mr. Limuel F. Galicia</div>
                     <div class="rank">Principal I</div>
@@ -359,65 +514,237 @@
             </div>
         </div>
 
-        <!-- TAB 3: GPTA OFFICERS & LEADERSHIP -->
         <div id="officers" class="tab-content">
-            
+
             <h2 class="section-title">GPTA Executive Officers</h2>
             <div class="officers-grid">
-                <div class="person-card"><div class="role">President</div><div class="name">Florante V. Cantos</div></div>
-                <div class="person-card"><div class="role">Vice President</div><div class="name">Luis Perez</div></div>
-                <div class="person-card"><div class="role">Secretary</div><div class="name">Rona L. Dimayuga</div></div>
-                <div class="person-card"><div class="role">Secretary</div><div class="name">Leonisa B. Escala</div></div>
-                <div class="person-card"><div class="role">Treasurer</div><div class="name">Kwensie B. Pascua</div></div>
-                <div class="person-card"><div class="role">Auditor</div><div class="name">Bella B. Viceral</div></div>
+                <div class="person-card">
+                    <div class="role">President</div>
+                    <div class="name">Florante V. Cantos</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Vice President</div>
+                    <div class="name">Luis Perez</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Secretary</div>
+                    <div class="name">Rona L. Dimayuga</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Secretary</div>
+                    <div class="name">Leonisa B. Escala</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Treasurer</div>
+                    <div class="name">Kwensie B. Pascua</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">Auditor</div>
+                    <div class="name">Bella B. Viceral</div>
+                </div>
             </div>
 
             <h2 class="section-title">Public Information Officers (PIO)</h2>
             <div class="officers-grid">
-                <div class="person-card"><div class="role">PIO</div><div class="name">Raiza S. Perea</div></div>
-                <div class="person-card"><div class="role">PIO</div><div class="name">Alex P. Espina</div></div>
-                <div class="person-card"><div class="role">PIO</div><div class="name">Ma. Kaize R. Untalan</div></div>
-                <div class="person-card"><div class="role">PIO</div><div class="name">Liza Caringal</div></div>
+                <div class="person-card">
+                    <div class="role">PIO</div>
+                    <div class="name">Raiza S. Perea</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">PIO</div>
+                    <div class="name">Alex P. Espina</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">PIO</div>
+                    <div class="name">Ma. Kaize R. Untalan</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">PIO</div>
+                    <div class="name">Liza Caringal</div>
+                </div>
             </div>
 
             <h2 class="section-title">Board of Directors</h2>
             <div style="margin-bottom: 1.25rem;">
-                <div class="person-card" style="max-width: 300px; margin: 0 auto 1.25rem auto; border: 2px solid var(--secondary)">
+                <div class="person-card"
+                    style="max-width: 300px; margin: 0 auto 1.25rem auto; border: 2px solid var(--secondary)">
                     <div class="role">BOD Chairman</div>
                     <div class="name" style="font-size: 1.1rem;">Anthony Caňazares</div>
                 </div>
             </div>
             <div class="officers-grid">
-                <div class="person-card"><div class="role">BOD Member</div><div class="name">Myrna E. Sarmiento</div></div>
-                <div class="person-card"><div class="role">BOD Member</div><div class="name">Joy D. Bisco</div></div>
-                <div class="person-card"><div class="role">BOD Member</div><div class="name">Jealene Macasaet</div></div>
-                <div class="person-card"><div class="role">BOD Member</div><div class="name">Judy Ann Fortes</div></div>
-                <div class="person-card"><div class="role">BOD Member</div><div class="name">Annaliza Gutierez</div></div>
-                <div class="person-card"><div class="role">BOD Member</div><div class="name">Marcela P. Mendoza</div></div>
-                <div class="person-card"><div class="role">BOD Member</div><div class="name">Mary Jane V. Berana</div></div>
+                <div class="person-card">
+                    <div class="role">BOD Member</div>
+                    <div class="name">Myrna E. Sarmiento</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">BOD Member</div>
+                    <div class="name">Joy D. Bisco</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">BOD Member</div>
+                    <div class="name">Jealene Macasaet</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">BOD Member</div>
+                    <div class="name">Judy Ann Fortes</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">BOD Member</div>
+                    <div class="name">Annaliza Gutierez</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">BOD Member</div>
+                    <div class="name">Marcela P. Mendoza</div>
+                </div>
+                <div class="person-card">
+                    <div class="role">BOD Member</div>
+                    <div class="name">Mary Jane V. Berana</div>
+                </div>
             </div>
         </div>
 
-        <!-- TAB 4: CANDIDATES PLACEHOLDER -->
         <div id="candidates" class="tab-content">
-            <h2 class="section-title">Mr. and Ms. Foundation 2025</h2>
-            <div class="placeholder-box">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="margin: 0 auto 1rem auto; opacity: 0.5;">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">List of Candidates Profile Panel</p>
-                <p style="font-size: 0.9rem;">The database roster for the Mr. and Ms. Foundation 2025 candidates will appear here once finalized.</p>
+            <h2 class="section-title">Mr. & Ms. Foundation 2025: Major Awards</h2>
+
+            <div class="royal-court">
+                <div class="royal-card">
+                    <h3>Mr. Foundation 2025</h3>
+                    <div class="winner-name">Paul Jeorge C. Sambo</div>
+                    <div class="grade-badge">Grade 5</div>
+                </div>
+                <div class="royal-card">
+                    <h3>Ms. Foundation 2025</h3>
+                    <div class="winner-name">Michaela Jin A. Barredo</div>
+                    <div class="grade-badge">Grade 3</div>
+                </div>
             </div>
+
+            <div class="runners-court">
+                <table class="court-table">
+                    <thead>
+                        <tr>
+                            <th>Award Designation</th>
+                            <th>Candidate (Gentleman)</th>
+                            <th>Candidate (Lady)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="court-title">1st Runner-Up</td>
+                            <td>Ryan Franco G. Medina <span style="font-size:0.8rem; color:#6b7280;">(Grade 4)</span>
+                            </td>
+                            <td>Tiffany Wyona C. Cabutihan <span style="font-size:0.8rem; color:#6b7280;">(Grade
+                                    2)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="court-title">2nd Runner-Up</td>
+                            <td>Aljur Evan D. Amada <span style="font-size:0.8rem; color:#6b7280;">(Grade 1)</span></td>
+                            <td>Daniella A. Tambong <span style="font-size:0.8rem; color:#6b7280;">(Grade 1)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="court-title">3rd Runner-Up</td>
+                            <td>Eithan Kiel C. Purino <span style="font-size:0.8rem; color:#6b7280;">(Kinder)</span>
+                            </td>
+                            <td>Eineng D. Cantos <span style="font-size:0.8rem; color:#6b7280;">(Grade 4)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="court-title">4th Runner-Up</td>
+                            <td>Mattew Railey B. An <span style="font-size:0.8rem; color:#6b7280;">(Grade 2)</span></td>
+                            <td>Princess Cassandra M. Alagar <span style="font-size:0.8rem; color:#6b7280;">(Grade
+                                    5)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="section-title">All Registered Candidates by Grade Level</h2>
+
+            <div class="grade-section">
+                <h3>Kindergarten</h3>
+                <div class="candidates-list-names">
+                    <div class="candidate-item">Eithan Kiel C. Purino</div>
+                    <div class="candidate-item">Skye B. Pascua</div>
+                </div>
+            </div>
+
+            <div class="grade-section">
+                <h3>Grade 1</h3>
+                <div class="candidates-list-names">
+                    <div class="candidate-item">Aljur Evan D. Amada</div>
+                    <div class="candidate-item">Jordan E. Soriano</div>
+                    <div class="candidate-item">Jade A. Amada</div>
+                    <div class="candidate-item">Daniella A. Tambong</div>
+                </div>
+            </div>
+
+            <div class="grade-section">
+                <h3>Grade 2</h3>
+                <div class="candidates-list-names">
+                    <div class="candidate-item">Mattew Railey B. An</div>
+                    <div class="candidate-item">Renzo C. Llorca</div>
+                    <div class="candidate-item">Tiffany Wyona C. Cabutihan</div>
+                    <div class="candidate-item">Kendra Raicel S. Perea</div>
+                    <div class="candidate-item">Zyrish Niña E. Reña</div>
+                    <div class="candidate-item">Jelyan Mary A. Sinagpulo</div>
+                    <div class="candidate-item">Yesha Joy U. Untalan</div>
+                </div>
+            </div>
+
+            <div class="grade-section">
+                <h3>Grade 3</h3>
+                <div class="candidates-list-names">
+                    <div class="candidate-item">Brylle C. Macasaet</div>
+                    <div class="candidate-item">Jayrus P. Mortel</div>
+                    <div class="candidate-item">Mark Zyrus C. Ramos</div>
+                    <div class="candidate-item">Kyle Gabriel U. Untalan</div>
+                    <div class="candidate-item">Michaela Jin A. Barredo</div>
+                    <div class="candidate-item">Xylestine Eunice D. Mercado</div>
+                    <div class="candidate-item">Arkiesha Sofia E. Yahut</div>
+                </div>
+            </div>
+
+            <div class="grade-section">
+                <h3>Grade 4</h3>
+                <div class="candidates-list-names">
+                    <div class="candidate-item">Ryan Franco G. Medina</div>
+                    <div class="candidate-item">Macky Ellie B. Mulingtapang</div>
+                    <div class="candidate-item">Yexcel A. Tugbo</div>
+                    <div class="candidate-item">Eineng D. Cantos</div>
+                </div>
+            </div>
+
+            <div class="grade-section">
+                <h3>Grade 5</h3>
+                <div class="candidates-list-names">
+                    <div class="candidate-item">Paul Jeorge C. Sambo</div>
+                    <div class="candidate-item">Prince Kean Mathew G. Untalan</div>
+                    <div class="candidate-item">Robert De Torres</div>
+                    <div class="candidate-item">Princess Cassandra M. Alagar</div>
+                    <div class="candidate-item">Princess Chloe F. Guerra</div>
+                    <div class="candidate-item">Miycka Hyen P. Mendoza</div>
+                </div>
+            </div>
+
+            <div class="grade-section">
+                <h3>Grade 6</h3>
+                <div class="candidates-list-names">
+                    <div class="candidate-item">Rhayan Louise Briz</div>
+                    <div class="candidate-item">Xian Marcos E. Omega</div>
+                    <div class="candidate-item">Lexus Jufel C. Gutierrez</div>
+                    <div class="candidate-item">Alexandria M. Espina</div>
+                    <div class="candidate-item">Pearl Vanjayli C. Aclan</div>
+                </div>
+            </div>
+
         </div>
 
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Tilambo Elementary School. All Rights Reserved.</p>
     </footer>
 
-    <!-- Interactive JavaScript -->
     <script>
         function switchTab(event, tabId) {
             // Remove active status from all tabs
@@ -433,4 +760,5 @@
         }
     </script>
 </body>
+
 </html>
